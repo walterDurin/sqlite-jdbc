@@ -1,0 +1,29 @@
+
+= How to compile new version of SQLiteJDBC 
+* Edit the VERSION file, and the version number in pom.xml file.
+* Then, run make 
+
+
+= How to build pure-java and native libraries
+* Type, make -fMakefile.package 
+
+= How to deploy to the maven repository
+* mvn deploy
+* mvn deploy -Psourceforge  (for uploading Sourceforge.jp repository, which are synchronized with the Maven central repository)
+
+= How to submit a patch
+
+> (do some change)
+> hg commit -m 'what changesa are made for the source'
+> hg export tip > patch.diff
+
+submit the patch to the issue tracker
+
+
+
+= How to build Win64 native library
+- Install cygwin with make, curl, unzip 
+- Install MinGW64
+- http://sourceforge.net/projects/mingw-w64/files/
+-- I downloaded mingw-w64-bin_i686-mingw_20091109.zip, and add bin folder to the PATH
+- make native  Win_CC=x86_64-w64-mingw32-gcc Win_STRIP=x86_64-w64-mingw32-strip
